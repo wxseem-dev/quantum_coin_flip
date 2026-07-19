@@ -19,6 +19,6 @@ hadamard_gate  = ((1/np.sqrt(2)) * np.array([[1, 1], [1, -1]]))
 print("hadamard gate:", hadamard_gate)
 
 
-altered_gate = qubit_state * hadamard_gate
+altered_gate = hadamard_gate @ qubit_state
 
 print("superposition:", altered_gate)
