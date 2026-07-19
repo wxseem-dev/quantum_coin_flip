@@ -20,6 +20,12 @@ print("qubit_state:", qubit_state)
 hadamard_gate  = ((1/np.sqrt(2)) * np.array([[1, 1], [1, -1]]))
 print("hadamard gate:", hadamard_gate)
 
+# Hadamard gate ---- #
+
+# A qubit is like a direction perfectly upwards towards 0 or perfectly downwards towards 1
+# a hardamard gate is a geometric rotator which rotates the state vertically to 90 degrees so its in the middle and equidistant creating a 50/50 split
+# there are many ways a quantum state can achieve 50/50, they have a phase which is an angle/direction
+# ------------------ #
 
 altered_gate = hadamard_gate @ qubit_state # true matrix calculation is done with @
 
@@ -47,3 +53,16 @@ count_1 = np.count_nonzero(choice == 1)
 
 print(count_0, '0s')
 print(count_1, '1s')
+
+def quantum_coin_flip():
+    qubit_state = np.array([0, 1])
+
+    hadamard_gate  = ((1/np.sqrt(2)) * np.array([[1, 1], [1, -1]]))
+
+    altered_gate = hadamard_gate @ qubit_state # true matrix calculation is done with @
+
+    zero_state_probability = altered_gate[0] ** 2
+    one_state_probability = altered_gate[1] ** 2
+
+    return np.random.choice(a=[0,1], size=None, replace=True, p=[zero_state_probability, one_state_probability])
+
