@@ -1,4 +1,5 @@
 import numpy as np
+import random
 # Normal computing, a bit is represented as a hard 0 (OFF) and 1 (ON)
 # In quantum computing, a qubit is in a mixed state between the two as a blend, mixture of 0 and 1
 # it could be pure 0 state so [1, 0] meaning 100% towards 0 or it could be pure 1 [0, 1] meaning 100% towards 1
@@ -116,5 +117,12 @@ normal_array = np.array(normal_list)
 
 quantum_values, quantum_count = np.unique(quantum_array, return_counts=True)
 normal_values, normal_count = np.unique(normal_array, return_counts=True)
+
+print(quantum_values)
+print(quantum_count)
+
+print(normal_values)
+print(normal_count)
+
 
 
