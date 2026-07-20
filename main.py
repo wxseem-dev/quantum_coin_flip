@@ -66,3 +66,33 @@ def quantum_coin_flip():
 
     return np.random.choice(a=[0,1], size=None, replace=True, p=[zero_state_probability, one_state_probability])
 
+# to generate a random number using quantum_coin_flip we can use it to generate binary bits and then form the number
+# but we need to know how many bits we need
+
+# Example
+number = 10 # in binary 10 = 1010
+print(number.bit_length()) # output = 4, this tells us how many binary bits or in this case quantum flips we will need to represent the number
+
+def quantum_random_number_generator(max_value):
+    bits_needed = max_value.bit_length()
+    possible = 0
+    is_valid = False
+
+    while is_valid is False:
+        binary = ""
+
+        for i in range(bits_needed):
+            digit = quantum_coin_flip()
+            binary = binary + str(digit)
+        
+        denary = int(binary, 2)
+
+        if not denary > max_value:
+            possible = denary
+            is_valid = True
+    
+    return possible
+
+
+random_number = quantum_random_number_generator(10)
+print(random_number)
