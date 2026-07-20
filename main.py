@@ -98,8 +98,23 @@ def quantum_random_number_generator(max_value):
 
 # Comparison to normal randomisation
 quantum_list = []
+normal_list = []
 
 for x in range(10000):
     quantum_list.append(quantum_random_number_generator(10))
 
+    normal_list.append(random.randint(0, 10))
+
 quantum_array = np.array(quantum_list)
+normal_array = np.array(normal_list)
+
+# numpy analysis
+# np.unique() is used to analyse the distribution of data
+# the argument return_counts = True will analyse the array and return two things
+# 1. a list of the unique numbers found 
+# 2. a list of how many times each number appeared
+
+quantum_values, quantum_count = np.unique(quantum_array, return_counts=True)
+normal_values, normal_count = np.unique(normal_array, return_counts=True)
+
+
