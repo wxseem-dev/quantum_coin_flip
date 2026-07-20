@@ -70,8 +70,8 @@ def quantum_coin_flip():
 # but we need to know how many bits we need
 
 # Example
-number = 10 # in binary 10 = 1010
-print(number.bit_length()) # output = 4, this tells us how many binary bits or in this case quantum flips we will need to represent the number
+#number = 10 # in binary 10 = 1010
+#print(number.bit_length()) # output = 4, this tells us how many binary bits or in this case quantum flips we will need to represent the number
 
 def quantum_random_number_generator(max_value):
     bits_needed = max_value.bit_length()
@@ -93,6 +93,13 @@ def quantum_random_number_generator(max_value):
     
     return possible
 
+#random_number = quantum_random_number_generator(10)
+#print(random_number)
 
-random_number = quantum_random_number_generator(10)
-print(random_number)
+# Comparison to normal randomisation
+quantum_list = []
+
+for x in range(10000):
+    quantum_list.append(quantum_random_number_generator(10))
+
+quantum_array = np.array(quantum_list)
