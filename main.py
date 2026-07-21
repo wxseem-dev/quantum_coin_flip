@@ -118,11 +118,11 @@ normal_array = np.array(normal_list)
 quantum_values, quantum_count = np.unique(quantum_array, return_counts=True)
 normal_values, normal_count = np.unique(normal_array, return_counts=True)
 
-print(quantum_values)
-print(quantum_count)
+quantum_difference = np.max(quantum_count) - np.min(quantum_count)
+normal_difference = np.max(normal_count) - np.min(normal_count)
 
-print(normal_values)
-print(normal_count)
+print("quantum diff:", quantum_difference)
+print("normal diff:", normal_difference)
 
 
 
